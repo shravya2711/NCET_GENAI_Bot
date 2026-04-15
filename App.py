@@ -11,10 +11,10 @@ if st.button("Generate Content"):
   response = client.chat.completions.create(
     model="llama-3.3-70b-versatile",
     messages=[{"role": "user","content" : prompt}]
-)
-st.session_state.text = response.choices[0].message.content
-text = response.choices[0].message.content
-st.write(text)
+  )
+  st.session_state.text = response.choices[0].message.content
+  text = response.choices[0].message.content
+  st.write(text)
 if "text" in st.session_state:
     content = st.text_area("Generated Content", st.session_state.text, height=300)
     st.download_button(
